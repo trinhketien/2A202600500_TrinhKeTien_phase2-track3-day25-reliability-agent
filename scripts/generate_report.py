@@ -28,9 +28,9 @@ def main() -> None:
         lines.append(f"| {key} | {value} |")
     lines += [
         "",
-        "## Analysis TODO(student)",
+        "## Analysis",
         "",
-        "Explain what failed, why the fallback path worked or did not work, and what you would change before production.",
+        "See `reports/final_report.md` for detailed failure analysis, cache comparison, and next steps.",
     ]
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     Path(args.out).write_text("\n".join(lines))

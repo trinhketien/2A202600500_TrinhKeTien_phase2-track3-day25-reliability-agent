@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import copy
 import json
 import random
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -75,7 +74,6 @@ def _evaluate_scenario(scenario_name: str, result: RunMetrics) -> str:
     """Determine pass/fail for a scenario based on specific criteria."""
     if scenario_name == "primary_timeout_100":
         # Primary 100% fail → fallback should handle almost everything
-        rate = result.fallback_success_rate
         return "pass" if result.fallback_successes > 0 and result.availability > 0.5 else "fail"
     elif scenario_name == "primary_flaky_50":
         # Primary 50% fail → circuit should oscillate, availability should be decent
